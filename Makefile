@@ -44,8 +44,8 @@ format:
 05_pointers: 05_pointers.cpp
 	$(CC) 05_pointers.cpp $(OPTS) -o 05_pointers
 
-06: 06_new
-	./06_new $(ARGS)
+06: 06_STL
+	./06_STL $(ARGS)
 
-06_new: 06_new.cpp
-	$(CC) 06_new.cpp $(OPTS) -o 06_new
+06_STL: 06_STL.cpp
+	$(CC) 06_STL.cpp $(OPTS) -o 06_STL

@@ -3,7 +3,8 @@ GURINC=-I $(GUR)/include
 GURLIB=-L $(GUR)/lib -lgurobi_c++ -lgurobi90 -lm 
 # GURLIB= $(GUR)/lib/libgurobi_c++.a $(GUR)/lib/libgurobi81.so -lm  
 # # GURLIB=-L $(GUR)/lib -lgurobi_c++ -lgurobi81 -lm 
-GUROPT=$(GURINC) $(GURLIB)
+GUROPT=
+#$(GURINC) $(GURLIB)
 
 
 CC=g++
@@ -43,3 +44,8 @@ format:
 05_pointers: 05_pointers.cpp
 	$(CC) 05_pointers.cpp $(OPTS) -o 05_pointers
 
+06: 06_new
+	./06_new $(ARGS)
+
+06_new: 06_new.cpp
+	$(CC) 06_new.cpp $(OPTS) -o 06_new

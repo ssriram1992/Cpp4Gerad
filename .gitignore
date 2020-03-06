@@ -7,3 +7,5 @@ a.out
 04_classes
 05_pointers
 06_STL
+07_constructors
+08_move

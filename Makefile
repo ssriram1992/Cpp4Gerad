@@ -49,3 +49,16 @@ format:
 
 06_STL: 06_STL.cpp
 	$(CC) 06_STL.cpp $(OPTS) -o 06_STL
+
+07: 07_constructors
+	./07_constructors $(ARGS)
+
+07_constructors: 07_constructors.cpp
+	$(CC) 07_constructors.cpp $(OPTS) -o 07_constructors
+
+08: 08_move
+	./08_move $(ARGS)
+
+08_move: 08_move.cpp
+	$(CC) 08_move.cpp $(OPTS) -o 08_move
+

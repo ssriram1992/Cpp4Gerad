@@ -8,24 +8,34 @@
   ###    #####           #####
 */
 //
-// #include<iostream>
+#include <iostream>
 //
-// int main()
-// {
-// std::cout << "Enter a number: ";
-//
-// // Declare only before where the variable is needed
-// int n;
-// std::cin >> n;
-//
-// long int fact {1L};
-// for(int i=1;i<n+1;i++)
-// fact*=i;
-//
-// std::cout << n <<" factorial is "<<fact<<'\n';
-//
-// return 0;
-// }
+int main() {
+  std::cout << "Enter a number: ";
+  //
+  // Declare only before where the variable is needed
+  int n;
+  /*
+  int  - integer (4 bytes/8 bytes/16 bytes) @ - 2^32 to + 2^32
+  char  - -128 to +128 - 1 byte
+  double - 16/32 
+  "Qualification" for int/char
+  unsigned int or signed int
+  long
+
+  */
+  std::cin >> n;
+ 
+  //
+  // long int fact = 1; <- bad practice. 
+  long int fact{1L};
+  // for (initialization; checking; increment/final steps)
+  for (int i = 1; i < n + 1; i++)							{fact *= i;}
+  //
+  std::cout << n << " factorial is " << fact << '\n';
+  //
+  return 0;
+}
 
 /*
 

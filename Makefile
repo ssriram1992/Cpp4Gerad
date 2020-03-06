@@ -12,7 +12,7 @@ OPTS=-std=c++14 $(GUROPT)
 ARGS=
 
 format:
-	clang-format-9 *.cpp -i
+	clang-format-9 *.cpp *.h -i
 
 01: 01_Factorial
 	./01_Factorial $(ARGS)
@@ -61,4 +61,16 @@ format:
 
 08_move: 08_move.cpp
 	$(CC) 08_move.cpp $(OPTS) -o 08_move
+
+09: 09_new
+	./09_new $(ARGS)
+
+09_new: 09_new.o complex.o 
+	$(CC) 09_new.o complex.o -o 09_new
+
+09_new.o: 09_new.cpp complex.h
+	$(CC) -c 09_new.cpp $(OPTS) -o 09_new.o
+
+complex.o: complex.cpp complex.h
+	$(CC) -c complex.cpp $(OPTS) -o complex.o
 

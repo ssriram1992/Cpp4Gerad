@@ -5,7 +5,7 @@ class Complex {
 private:
   double real{0};
   double imag{0};
-  static constexpr double pi{3.14159}; // Not a constant?
+  static constexpr double pi{3.14159}; 
 
 public:
   Complex(const double real = 0, const double imag = 0)
@@ -31,8 +31,11 @@ public:
   }
 
   void reset(double real = 0, double imag = 0) {
+    static unsigned int count {0};
     this->real = real;
     this->imag = imag;
+    count++ ;
+    std::cout << count;
   }
 };
 
@@ -47,7 +50,7 @@ std::ostream &operator<<(std::ostream &out, Complex z) {
 
 // Fix this function so that it works!
 // Good place to explain auto/const/static/volatile
-void ConjugateIt(Complex z) {
+void ConjugateIt(Complex &z) {
   auto r = z.realPart();
   auto i = z.imagPart();
   z.reset(r, -i);
@@ -62,6 +65,10 @@ int main() {
 
   ConjugateIt(z);
   std::cout << "Outside ConjugateIt(): " << z << '\n';
-
+// ./04_classes                                                                                                                                                                                                                                 
+// 1.732+3i                                                                                                                                                                                                                                     
+// 2+2i                                                                                                                                                                                                                                         
+// Inside ConjugateIt(): 2-2i                                                                                                                                                                                                                   
+// Outside ConjugateIt(): 2+2i  
   return 0;
 }

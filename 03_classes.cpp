@@ -5,12 +5,17 @@ class Complex {
 private:
   double real{0};
   double imag{0};
-  double pi{3.14159}; // Not a constant?
+  const double pi{3.14159}; // Not a constant?
 
 public:
-  Complex(double r = 0, double i = 0) {
-    real = r;
-    imag = i;
+  // Complex(const double real = 0, const double imag = 0) {
+  //   std:: cout << "Haha! My first constructor in c++ \n";
+  //   this->real = real;
+  //   this->imag = imag;
+  // }
+  Complex (const bool phase = true,const  double mag, const double phase){
+    real = mag * std::cos(phase);
+    imag = mag * std::sin(phase);
   }
   // // Alternate
   // Complex(double real=0, double imag=0){
@@ -18,20 +23,25 @@ public:
   // this->imag=imag;
   // }
   // Alternate - Best choice
-  // Complex(double real = 0, double imag = 0) : real{real}, imag{imag} {}
+  Complex(double real = 0, double imag = 0) : real{real}, imag{imag} {
+    // Nothing here
+  }
 
   // Absolute value and phases
-  double realPart() { return this->real; }
-  double imagPart() { return this->imag; }
-  double abs() { return std::sqrt(real * real + imag * imag); }
-  double phase() {
+  void conjugateIt(){
+    imag = -imag;
+  }
+  double realPart() const { return real; }
+  double imagPart() const { return imag; }
+  double abs() const { return std::sqrt(real * real + imag * imag); }
+  double phase() const {
     if (real == 0 && imag == 0)
       return 0;
     if (real == 0)
       return pi / 2;
     return std::atan(imag / real);
   }
-  double phaseAsPiFactor() {
+  double phaseAsPiFactor() const {
     if (real == 0 && imag == 0)
       return 0;
     if (real == 0)
